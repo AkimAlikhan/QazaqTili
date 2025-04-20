@@ -1,0 +1,8 @@
+<%- include('partials/header', { title: 'Классы' }) %>
+<h1>Сыныпты таңдаңыз</h1>
+<ul>
+  <% classes.forEach(c => { %>
+    <li><a href="/class/<%= encodeURIComponent(c) %>" class="btn"><%= c %></a></li>
+  <% }) %>
+</ul>
+<%- include('partials/footer') %>

@@ -1,0 +1,16 @@
+<%- include('partials/header', { title: className }) %>
+<h1>Посты: <%= className %></h1>
+<% if (!posts.length) { %>
+  <p>Нет постов для этого класса.</p>
+<% } else { %>
+  <% posts.forEach(p => { %>
+    <article>
+      <h2><%= p.title %></h2>
+      <p><%= p.body %></p>
+      <small><%= p.createdAt.toLocaleString() %></small>
+    </article>
+    <hr>
+  <% }) %>
+<% } %>
+<p><a href="/" class="btn">← Назад к классам</a></p>
+<%- include('partials/footer') %>

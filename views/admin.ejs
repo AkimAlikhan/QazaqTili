@@ -1,0 +1,33 @@
+<%- include('partials/header', { title: 'Admin' }) %>
+<h1>Admin: <%= user.username %></h1>
+<a href="/logout" class="btn">Logout</a>
+<% if (error.length) { %>
+  <p style="color:red"><%= error %></p>
+<% } %>
+<% if (success.length) { %>
+  <p style="color:green"><%= success %></p>
+<% } %>
+<h2>Create New Post</h2>
+<form action="/admin" method="post">
+  <input name="title" placeholder="Заголовок" required>
+  <textarea name="body" placeholder="Содержимое" required></textarea>
+  <select name="category" required>
+    <option disabled selected>Выберите класс</option>
+    <% classes.forEach(c => { %>
+      <option value="<%= c %>"><%= c %></option>
+    <% }) %>
+  </select>
+  <button type="submit" class="btn">Опубликовать</button>
+</form>
+<h2>All Posts</h2>
+<ul>
+  <% posts.forEach(p => { %>
+    <li>
+      [<%= p.category %>] <strong><%= p.title %></strong>
+      <form action="/admin/delete/<%= p._id %>" method="post" style="display:inline">
+        <button class="btn">Удалить</button>
+      </form>
+    </li>
+  <% }) %>
+</ul>
+<%- include('partials/footer') %>
