@@ -19,7 +19,7 @@ const Post = require('./models/Post');
 const app = express();
 
 // 3️⃣ Make `classes` available in all templates via res.locals
-const CLASSES = ['7 класс','8 класс','9 класс','10 класс','11 класс','12 класс'];
+const CLASSES = ['7 сынып','8 сынып','9 сынып','10 сынып','11 сынып','12 сынып'];
 app.use((req, res, next) => {
   res.locals.classes = CLASSES;                                     // res.locals holds request‑specific template vars :contentReference[oaicite:5]{index=5}
   next();

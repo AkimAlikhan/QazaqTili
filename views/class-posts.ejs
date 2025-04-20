@@ -1,7 +1,7 @@
 <%- include('partials/header', { title: className }) %>
 <h1>Посты: <%= className %></h1>
 <% if (!posts.length) { %>
-  <p>Нет постов для этого класса.</p>
+  <p>Бұл сыныпта пост жоқ.</p>
 <% } else { %>
   <% posts.forEach(p => { %>
     <article>
@@ -12,5 +12,5 @@
     <hr>
   <% }) %>
 <% } %>
-<p><a href="/" class="btn">← Назад к классам</a></p>
+<p><a href="/" class="btn">← Артқа</a></p>
 <%- include('partials/footer') %>
